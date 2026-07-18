@@ -1,15 +1,48 @@
 nav {
-    display: flex;
-    outline: 2px solid rgb(182, 182, 182);
-    margin: 1rem;
-    background-color: hsla(100, 100%, 99%, 0.603);
-    border-radius: .25rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 2px 5px 5px gray;
+  display: flex;
+  outline: 2px solid rgb(182, 182, 182);
+  margin: 1rem;
+  background-color: hsla(100, 100%, 99%, 0.603);
+  border-radius: 0.25rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 5px 5px gray;
 }
 
 ul {
-    display: flex;
-    gap: .5rem;
-    list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.mobileMenu {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+
+.menuBar {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  border: 1px solid black;
+  background-color: black;
+  margin: 4px;
+  z-index: 99;
+}
+
+#menuButton {
+  z-index: 999;
+}
+#menuButton.is-open .menuBar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  border: none;
+}
+
+#menuButton.is-open .menuBar:nth-child(2) {
+  opacity: 0;
+}
+
+#menuButton.is-open .menuBar:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+  border: none;
 }
