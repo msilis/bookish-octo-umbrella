@@ -1,0 +1,14 @@
+nav {
+    display: flex;
+    outline: 2px solid rgb(182, 182, 182);
+    margin: 1rem;
+    background-color: rgba(127, 255, 212, 0.603);
+    border-radius: .25rem;
+    backdrop-filter: blur(5px);
+}
+
+ul {
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+}
