@@ -1,14 +1,17 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+console.log('currentPath: ', currentPath)
+
 import "../styles/navbarStyle.css"
 ---
-
 
 <html>
     <nav>
         <ul class="nav_list">
-            <li>About</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            <li class={currentPath === 'about' ? 'active': ''}><a href="/about" >About</a></li>
+            <li class={currentPath === 'blog' ? 'active' : ''}><a href="/blog">Blog</a></li>
+            <li class={currentPath === 'contact' ? 'active' : ''}><a href="/contact" >Contact</a></li>
         </ul>
         <button id="menuButton" class="mobileMenu" aria-label="Toggle menu">
     <span class="menuBar"></span>
