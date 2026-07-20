@@ -5,3 +5,7 @@
     --bright-gold: hsla(52, 98%, 48%, 1);
     --seagrass: hsla(168, 58%, 41%, 1);
 }
+
+html {
+    font-family: 'Courier New', Courier, monospace;
+}

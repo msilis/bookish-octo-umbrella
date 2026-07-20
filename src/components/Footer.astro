@@ -1,7 +1,126 @@
 ---
-import "../styles/footerStyle.css"
+import '../styles/footerStyle.css'
+const currentDate = new Date()
+const currentYear = currentDate.getFullYear()
 ---
 
 <html>
-    <footer>&copy; Miks Silis</footer>
+    <footer>
+        &copy;{currentYear} Miks Silis
+        <div class="dark-light-wrapper">
+            <div class="checkboxWrappe">
+                Day
+                <input type="checkbox" role="switch" id="dark-light" />Night
+            </div>
+            <script is:inline>
+                ;(function () {
+                    const darkLightCheckbox =
+                        document.getElementById('dark-light')
+                    const storedDarkMode = localStorage.getItem('colour-mode')
+                    const isSystemDark = window.matchMedia(
+                        '(prefers-color-scheme: dark)'
+                    ).matches
+                    if (
+                        storedDarkMode === 'dark' ||
+                        (!storedDarkMode && isSystemDark)
+                    ) {
+                        if (darkLightCheckbox) {
+                            darkLightCheckbox.checked = true
+                        }
+                    }
+                })()
+            </script>
+            <!-- <button class="backToTopButton">Back to top</button> -->
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checkboxWrapper {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        input:where([type='checkbox'][role='switch']) {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            position: relative;
+            font-size: inherit;
+            width: 2em;
+            height: 1em;
+            box-sizing: content-box;
+            border: 1px solid;
+            vertical-align: text-bottom;
+            margin: auto;
+            color: inherit;
+        }
+
+        input:where([type='checkbox'][role='switch'])::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+            box-sizing: border-box;
+            width: 0.7em;
+            height: 0.7em;
+            margin: 0 0.15em;
+            border: 1px solid;
+            background: currentcolor;
+        }
+
+        input:where([type='checkbox'][role='switch']):checked::before {
+            left: 1em;
+        }
+
+        input:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        // const handleBackToTop = () => {
+        //   window.scrollTo(0, 0);
+        // };
+
+        // const button = document.querySelector(".backToTopButton");
+        // button?.addEventListener("click", handleBackToTop);
+
+        const darkLightCheckbox = document.getElementById(
+            'dark-light'
+        ) as HTMLInputElement
+
+        const handleCheckboxChange = (e: Event) => {
+            const target = e?.currentTarget as HTMLInputElement
+            const htmlEl = document.documentElement
+            if (target.checked === true) {
+                localStorage.setItem('colour-mode', 'dark')
+                htmlEl.classList.add('dark')
+                htmlEl.classList.remove('light')
+            } else if (target.checked === false) {
+                localStorage.setItem('colour-mode', 'light')
+                htmlEl.classList.add('light')
+                htmlEl.classList.remove('dark')
+            }
+        }
+
+        darkLightCheckbox?.addEventListener('change', (e) =>
+            handleCheckboxChange(e)
+        )
+
+        window
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', (e) => {
+                if (!localStorage.getItem('colour-mode') && darkLightCheckbox) {
+                    darkLightCheckbox.checked = e.matches
+                }
+            })
+    </script>
+
+
 </html>

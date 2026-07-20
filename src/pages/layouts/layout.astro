@@ -1,71 +1,75 @@
 ---
-import Navbar from "../../components/Navbar.astro";
-import Footer from "../../components/Footer.astro";
+import Navbar from '../../components/Navbar.astro'
+import Footer from '../../components/Footer.astro'
 export interface Props {
-  title?: string;
-  preloadImage?: string;
+    title?: string
+    preloadImage?: string
 }
-const { preloadImage } = Astro.props;
-import "./variables.css"
+const { preloadImage } = Astro.props
+import './variables.css'
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <link rel="icon" href="/favicon.ico" />
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Personal site of Miks Silis, software developer." />
-    <title>Miks Silis | Software Developer</title>
-    <script is:inline>
-      (function () {
-        const theme = localStorage.getItem("colour-mode");
-        if (theme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else if (theme === "light") {
-          document.documentElement.classList.add("light");
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <Navbar class="navbar" />
-    <main class="content-wrapper">
-      <slot />
-    </main>
-    <Footer />
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+        {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
+        <meta name="generator" content={Astro.generator} />
+        <meta
+            name="description"
+            content="Personal site of Miks Silis, software developer."
+        />
+        <title>Miks Silis | Software Developer</title>
+        <script is:inline>
+            ;(function () {
+                const theme = localStorage.getItem('colour-mode')
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark')
+                } else if (theme === 'light') {
+                    document.documentElement.classList.add('light')
+                }
+            })()
+        </script>
+    </head>
+    <body>
+        <Navbar class="navbar" />
+        <main class="content-wrapper">
+            <slot />
+        </main>
+        <Footer />
+    </body>
 </html>
 
 <style>
-  body {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-  }
-  .content-wrapper {
-    flex-grow: 1;
-  }
-
-  @media screen and (max-width: 720px) {
+    body {
+        margin: 0;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
     .content-wrapper {
-      padding-top: 2rem;
+        flex-grow: 1;
+        margin: 0 2rem 0 2rem;
     }
-  }
-  @media (prefers-color-scheme: dark) {
-    html:not(.light) {
-      --bg-color: #1a1a1a;
-      --text-color: #f0f0f0;
+
+    @media screen and (max-width: 720px) {
+        .content-wrapper {
+            padding: 0 0.5rem 0 0.5rem;
+        }
     }
-  }
+    @media (prefers-color-scheme: dark) {
+        html:not(.light) {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+        }
+    }
 </style>
