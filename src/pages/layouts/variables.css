@@ -1,7 +1,7 @@
 :root {
-  --porcelain: hsla(100, 100%, 99%, 1);
-  --baltic-blue: hsla(209, 59%, 34%, 1);
-  --flag-red: hsla(358, 65%, 46%, 1);
-  --bright-gold: hsla(52, 98%, 48%, 1);
-  --seagrass: hsla(168, 58%, 41%, 1);
+    --porcelain: hsla(100, 100%, 99%, 1);
+    --baltic-blue: hsla(209, 59%, 34%, 1);
+    --flag-red: hsla(358, 65%, 46%, 1);
+    --bright-gold: hsla(52, 98%, 48%, 1);
+    --seagrass: hsla(168, 58%, 41%, 1);
 }
