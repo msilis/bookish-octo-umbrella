@@ -1,3 +1,47 @@
 footer {
     margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkboxWrapper {
+    display: flex;
+    gap: 0.25rem;
+}
+
+input:where([type='checkbox'][role='switch']) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    font-size: inherit;
+    width: 2em;
+    height: 1em;
+    box-sizing: content-box;
+    border: 1px solid;
+    vertical-align: text-bottom;
+    margin: auto;
+    color: inherit;
+}
+
+input:where([type='checkbox'][role='switch'])::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    box-sizing: border-box;
+    width: 0.7em;
+    height: 0.7em;
+    margin: 0 0.15em;
+    border: 1px solid;
+    background: currentcolor;
+}
+
+input:where([type='checkbox'][role='switch']):checked::before {
+    left: 1em;
+}
+
+input:hover {
+    cursor: pointer;
 }
