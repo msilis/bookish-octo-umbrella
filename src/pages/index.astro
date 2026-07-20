@@ -1,7 +1,30 @@
 ---
 import Layout from './layouts/layout.astro'
+import '../styles/homePageStyle.css'
 ---
 
 <Layout>
-    <h1>Miks Silis, Software Developer</h1>
+    <script is:inline>
+        const navigation = performance.getEntriesByType('navigation')[0]
+        const isReload = navigation && navigation.type === 'reload'
+        const isFromOurSite =
+            document.referrer &&
+            document.referrer.startsWith(window.location.origin)
+
+        if (isReload) {
+            sessionStorage.setItem('visited-landing', 'true')
+        } else if (isFromOurSite) {
+            document.documentElement.classList.add('visited-landing')
+            sessionStorage.setItem('visited-landing', 'true')
+        } else {
+            if (sessionStorage.getItem('visited-landing')) {
+                document.documentElement.classList.add('visited-landing')
+            } else {
+                sessionStorage.setItem('visited-landing', 'true')
+            }
+        }
+    </script>
+    <div class="typewriter" id="typewriter">
+        <h1>Miks Silis, Software Developer</h1>
+    </div>
 </Layout>
