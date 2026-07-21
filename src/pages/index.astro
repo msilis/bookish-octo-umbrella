@@ -7,6 +7,10 @@ import '../styles/homePageStyle.css'
     <script is:inline>
         const navigation = performance.getEntriesByType('navigation')[0]
         const isReload = navigation && navigation.type === 'reload'
+
+        window.addEventListener('resize', () => {
+            document.documentElement.classList.add('visited-landing')
+        })
         const isFromOurSite =
             document.referrer &&
             document.referrer.startsWith(window.location.origin)
@@ -24,12 +28,15 @@ import '../styles/homePageStyle.css'
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        function initTypewriter() {
             const lines = document.querySelectorAll('.mobileTitle span')
-            if (!lines.length || window.innerWidth >= 720) return
+            const desktopHeading = document.querySelector('.typewriter h1')
+
+            if (!lines.length) return
             const isVisited =
                 document.documentElement.classList.contains('visited-landing')
-            if (isVisited) {
+
+            const markAnimationFinished = () => {
                 lines.forEach((line, index) => {
                     if (index === lines.length - 1) {
                         line.classList.add('is-final')
@@ -37,6 +44,21 @@ import '../styles/homePageStyle.css'
                         line.classList.add('is-finished')
                     }
                 })
+            }
+
+            if (isVisited) {
+                markAnimationFinished()
+                return
+            }
+
+            if (window.innerWidth >= 720) {
+                if (desktopHeading) {
+                    desktopHeading.addEventListener('animationend', (e) => {
+                        if (e.animationName === 'typing') {
+                            markAnimationFinished()
+                        }
+                    })
+                }
                 return
             }
 
@@ -60,7 +82,13 @@ import '../styles/homePageStyle.css'
                 })
             }
             typeNextLine(0)
-        })
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTypewriter)
+        } else {
+            initTypewriter()
+        }
     </script>
     <div class="typewriter" id="typewriter">
         <h1>Miks Silis, Software Developer</h1>
