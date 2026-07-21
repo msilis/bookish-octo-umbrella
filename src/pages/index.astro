@@ -23,8 +23,52 @@ import '../styles/homePageStyle.css'
                 sessionStorage.setItem('visited-landing', 'true')
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lines = document.querySelectorAll('.mobileTitle span')
+            if (!lines.length || window.innerWidth >= 720) return
+            const isVisited =
+                document.documentElement.classList.contains('visited-landing')
+            if (isVisited) {
+                lines.forEach((line, index) => {
+                    if (index === lines.length - 1) {
+                        line.classList.add('is-final')
+                    } else {
+                        line.classList.add('is-finished')
+                    }
+                })
+                return
+            }
+
+            function typeNextLine(index) {
+                if (index >= lines.length) return
+                const currentLine = lines[index]
+                const isLastLine = index === lines.length - 1
+
+                currentLine.classList.add('is-typing')
+
+                currentLine.addEventListener('animationend', (e) => {
+                    if (e.animationName === 'typing') {
+                        currentLine.classList.remove('is-typing')
+                        if (isLastLine) {
+                            currentLine.classList.add('is-final')
+                        } else {
+                            currentLine.classList.add('is-finished')
+                            typeNextLine(index + 1)
+                        }
+                    }
+                })
+            }
+            typeNextLine(0)
+        })
     </script>
     <div class="typewriter" id="typewriter">
         <h1>Miks Silis, Software Developer</h1>
+        <div class="mobileTitle">
+            <span>Miks</span>
+            <span>Silis,</span>
+            <span>Software</span>
+            <span>Developer</span>
+        </div>
     </div>
 </Layout>
