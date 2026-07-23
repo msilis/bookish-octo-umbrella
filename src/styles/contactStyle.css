@@ -1,0 +1,8 @@
+.inlineLink {
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+.inlineLink:hover {
+    outline: 1px solid var(--baltic-blue);
+}

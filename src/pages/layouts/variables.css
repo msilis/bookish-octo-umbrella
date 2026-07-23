@@ -4,8 +4,19 @@
     --flag-red: hsla(358, 65%, 46%, 1);
     --bright-gold: hsla(52, 98%, 48%, 1);
     --seagrass: hsla(168, 58%, 41%, 1);
+    --bg-color: white;
+    --button-hover: black;
+    --text-color: black;
 }
 
 html {
     font-family: 'Courier New', Courier, monospace;
+}
+
+html.light {
+    --text-color: black;
+}
+
+html.dark {
+    --text-color: white;
 }
