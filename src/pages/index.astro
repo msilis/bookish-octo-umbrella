@@ -5,6 +5,13 @@ import '../styles/homePageStyle.css'
 
 <Layout>
     <script is:inline>
+        if (
+            window.location.hash.includes('#invite_token') ||
+            window.location.hash.includes('#recovery_token') ||
+            window.location.hash.includes('#confirmation_token')
+        ) {
+            window.location.href = '/admin' + window.location.hash
+        }
         const navigation = performance.getEntriesByType('navigation')[0]
         const isReload = navigation && navigation.type === 'reload'
 
