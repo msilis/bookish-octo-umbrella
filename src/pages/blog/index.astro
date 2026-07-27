@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../layouts/layout.astro'
+
+const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+---
+
+<Layout>
+    <h1>Blog page</h1>
+</Layout>
