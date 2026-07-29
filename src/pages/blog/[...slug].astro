@@ -16,13 +16,16 @@ export const getStaticPaths = (async () => {
 const pathname = new URL(Astro.request.url).pathname
 const postPathName = pathname.split('/')[2]
 const postPage = await getEntry('blog', postPathName)
+console.log(postPage, 'postPage')
 if (!postPage) throw new Error('Post not found')
 const { Content } = await render(postPage)
 const title = postPage.data.title
+const publishedDate = postPage.data.date
 ---
 
 <Layout>
     <a href="/blog">Back</a>
     <h2>{title}</h2>
+    <h3>{publishedDate.toLocaleDateString()}</h3>
     <Content />
 </Layout>
