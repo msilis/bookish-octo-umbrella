@@ -1,24 +1,28 @@
 ---
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1)
-console.log('currentPath: ', currentPath)
 
 import '../styles/navbarStyle.css'
+
+const isActive = (path: string) => {
+    if (path === '/') return pathname === '/'
+    return pathname.startsWith(path)
+}
 ---
 
 <html>
     <nav>
         <ul class="nav_list">
-            <li class={currentPath === '' ? 'active' : ''}>
+            <li class={isActive('/') ? 'active' : ''}>
                 <a href="/">Home</a>
             </li>
-            <li class={currentPath === 'about' ? 'active' : ''}>
+            <li class={isActive('/about') ? 'active' : ''}>
                 <a href="/about">About</a>
             </li>
-            <li class={currentPath === 'blog' ? 'active' : ''}>
+            <li class={isActive('/blog') ? 'active' : ''}>
                 <a href="/blog">Blog</a>
             </li>
-            <li class={currentPath === 'contact' ? 'active' : ''}>
+            <li class={isActive('/contact') ? 'active' : ''}>
                 <a href="/contact">Contact</a>
             </li>
         </ul>
