@@ -1,7 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro'
 import Layout from '../layouts/layout.astro'
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
+import { getEntry } from 'astro:content'
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection('blog')
@@ -11,11 +12,17 @@ export const getStaticPaths = (async () => {
         props: post,
     }))
 }) satisfies GetStaticPaths
-const post = Astro.props
+
+const pathname = new URL(Astro.request.url).pathname
+const postPathName = pathname.split('/')[2]
+const postPage = await getEntry('blog', postPathName)
+if (!postPage) throw new Error('Post not found')
+const { Content } = await render(postPage)
+const title = postPage.data.title
 ---
 
 <Layout>
     <a href="/blog">Back</a>
-    <h1>{post.data.title}</h1>
-    <p>{post.body}</p>
+    <h2>{title}</h2>
+    <Content />
 </Layout>
