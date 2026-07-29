@@ -34,7 +34,7 @@ Sitemap: ${sitemapUrl}
 
 export const GET: APIRoute = ({ site }) => {
   const siteUrl = site ? site.toString().replace(/\/$/, '') : 'https://example.com';
-  const sitemapUrl = `${siteUrl}/sitemap-index.xml`;
+  const sitemapUrl = `${siteUrl}/sitemap.xml`;
   return new Response(getRobotsTxt(sitemapUrl), {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
