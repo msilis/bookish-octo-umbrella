@@ -9,6 +9,10 @@
     align-items: center;
 }
 
+.postLink {
+    color: var(--text-color);
+}
+
 .postLink:hover {
     text-decoration: underline;
 }

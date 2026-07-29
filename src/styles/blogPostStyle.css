@@ -3,10 +3,12 @@
     align-items: center;
 }
 
-a {
-    color: var(--text-color);
-}
+main {
+    a {
+        color: var(--text-color);
+    }
 
-a:hover {
-    text-decoration: underline;
+    a:hover {
+        text-decoration: underline;
+    }
 }
