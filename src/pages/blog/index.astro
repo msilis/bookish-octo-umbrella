@@ -6,19 +6,22 @@ import '../../styles/blogPageStyle.css'
 const posts = (await getCollection('blog')).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )
-
-console.log(posts, 'posts')
 ---
 
 <Layout>
-    <h1>Blog page</h1>
+    <h1>Some things I've been thinking about...</h1>
     <ul class="postList">
         {
             posts.map((post) => {
                 if (!post) return
                 return (
-                    <li id={post?.data?.title}>
-                        <a href={`/blog/${post?.id}`}>{post?.data?.title}</a>
+                    <li class="postListItem" id={post?.data?.title}>
+                        <a class="postLink" href={`/blog/${post?.id}`}>
+                            {post?.data?.title}
+                        </a>
+                        <span class="postDate">
+                            - {post.data.date.toLocaleDateString()}
+                        </span>
                     </li>
                 )
             })

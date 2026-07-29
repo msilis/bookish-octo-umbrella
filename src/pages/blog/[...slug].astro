@@ -3,6 +3,9 @@ import type { GetStaticPaths } from 'astro'
 import Layout from '../layouts/layout.astro'
 import { getCollection, render } from 'astro:content'
 import { getEntry } from 'astro:content'
+import backIcon from '../../assets/icons/icons8-back-32.png'
+import Image from 'astro/components/Image.astro'
+import '../../styles/blogPostStyle.css'
 
 export const getStaticPaths = (async () => {
     const posts = await getCollection('blog')
@@ -24,8 +27,16 @@ const publishedDate = postPage.data.date
 ---
 
 <Layout>
-    <a href="/blog">Back</a>
+    <a href="/blog" id="backLink"
+        ><Image src={backIcon} alt={'left arrow'} id="backIcon" />Back</a
+    >
     <h2>{title}</h2>
     <h3>{publishedDate.toLocaleDateString()}</h3>
     <Content />
 </Layout>
+
+<style>
+    :global(html.dark) #backIcon {
+        filter: invert(100%);
+    }
+</style>

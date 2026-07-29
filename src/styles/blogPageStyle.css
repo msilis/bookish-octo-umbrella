@@ -1,5 +1,14 @@
 .postList {
     display: flex;
     flex-direction: column;
-    list-style: circle;
+}
+
+.postListItem {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.postLink:hover {
+    text-decoration: underline;
 }
