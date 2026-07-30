@@ -1,0 +1,46 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+import Layout from '../layouts/layout.astro'
+import '../../styles/blogPageStyle.css'
+
+const posts = await getCollection('blog')
+const sortedPosts = posts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const posts = await getCollection('blog')
+    const postPages = posts.map((post) => ({
+        postTitle: post.data.title,
+        postLink: post.id,
+        publishedDate: post.data.date,
+    }))
+
+    return paginate(postPages, { pageSize: 10 })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+console.log(page, 'page')
+---
+
+<Layout>
+    <h1>Some things I've been thinking about...</h1>
+    <ul class="postList">
+        {
+            page.data.map((post) => {
+                if (!post) return
+                return (
+                    <li class="postListItem" id={post?.postTitle}>
+                        <a class="postLink" href={`/blog/${post?.postLink}`}>
+                            {post?.postTitle}
+                        </a>
+                        <span class="postDate">
+                            - {post.publishedDate.toLocaleDateString()}
+                        </span>
+                    </li>
+                )
+            })
+        }
+    </ul>
+</Layout>
