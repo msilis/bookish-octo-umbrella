@@ -16,3 +16,8 @@
 .postLink:hover {
     text-decoration: underline;
 }
+
+.paginationContainer {
+    display: flex;
+    align-items: center;
+}

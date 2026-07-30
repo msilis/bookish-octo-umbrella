@@ -3,15 +3,14 @@ import type { GetStaticPaths } from 'astro'
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/layout.astro'
 import '../../styles/blogPageStyle.css'
-
-const posts = await getCollection('blog')
-const sortedPosts = posts.sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-)
+import { url } from 'astro:schema'
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await getCollection('blog')
-    const postPages = posts.map((post) => ({
+    const sortedPosts = posts.sort(
+        (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+    )
+    const postPages = sortedPosts.map((post) => ({
         postTitle: post.data.title,
         postLink: post.id,
         publishedDate: post.data.date,
@@ -43,4 +42,13 @@ console.log(page, 'page')
             })
         }
     </ul>
+    <section class="paginationContainer">
+        {page.url.first ? <p>Page {page.currentPage} :</p> : null}
+        <ul class="paginationButtonContainer">
+            {page.url.first ? <a href={page.url.first}>First</a> : null}
+            {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+            {page.url.next ? <a href={page.url.next}>Next</a> : null}
+            {page.url.last ? <a href={page.url.last}>Last</a> : null}
+        </ul>
+    </section>
 </Layout>
