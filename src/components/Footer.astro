@@ -4,74 +4,70 @@ const currentDate = new Date()
 const currentYear = currentDate.getFullYear()
 ---
 
-<html>
-    <footer>
-        &copy;{currentYear} Miks Silis
-        <div class="dark-light-wrapper">
-            <div class="checkboxWrapper">
-                Day
-                <input type="checkbox" role="switch" id="dark-light" />Night
-            </div>
-            <script is:inline>
-                ;(function () {
-                    const darkLightCheckbox =
-                        document.getElementById('dark-light')
-                    const storedDarkMode = localStorage.getItem('colour-mode')
-                    const isSystemDark = window.matchMedia(
-                        '(prefers-color-scheme: dark)'
-                    ).matches
-                    if (
-                        storedDarkMode === 'dark' ||
-                        (!storedDarkMode && isSystemDark)
-                    ) {
-                        if (darkLightCheckbox) {
-                            darkLightCheckbox.checked = true
-                        }
-                    }
-                })()
-            </script>
-            <!-- <button class="backToTopButton">Back to top</button> -->
+<footer>
+    &copy;{currentYear} Miks Silis
+    <div class="dark-light-wrapper">
+        <div class="checkboxWrapper">
+            Day
+            <input type="checkbox" role="switch" id="dark-light" />Night
         </div>
-    </footer>
-
-    <script>
-        // const handleBackToTop = () => {
-        //   window.scrollTo(0, 0);
-        // };
-
-        // const button = document.querySelector(".backToTopButton");
-        // button?.addEventListener("click", handleBackToTop);
-
-        const darkLightCheckbox = document.getElementById(
-            'dark-light'
-        ) as HTMLInputElement
-
-        const handleCheckboxChange = (e: Event) => {
-            const target = e?.currentTarget as HTMLInputElement
-            const htmlEl = document.documentElement
-            if (target.checked === true) {
-                localStorage.setItem('colour-mode', 'dark')
-                htmlEl.classList.add('dark')
-                htmlEl.classList.remove('light')
-            } else if (target.checked === false) {
-                localStorage.setItem('colour-mode', 'light')
-                htmlEl.classList.add('light')
-                htmlEl.classList.remove('dark')
-            }
-        }
-
-        darkLightCheckbox?.addEventListener('change', (e) =>
-            handleCheckboxChange(e)
-        )
-
-        window
-            .matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', (e) => {
-                if (!localStorage.getItem('colour-mode') && darkLightCheckbox) {
-                    darkLightCheckbox.checked = e.matches
+        <script is:inline>
+            ;(function () {
+                const darkLightCheckbox =
+                    document.getElementById('dark-light')
+                const storedDarkMode = localStorage.getItem('colour-mode')
+                const isSystemDark = window.matchMedia(
+                    '(prefers-color-scheme: dark)'
+                ).matches
+                if (
+                    storedDarkMode === 'dark' ||
+                    (!storedDarkMode && isSystemDark)
+                ) {
+                    if (darkLightCheckbox) {
+                        darkLightCheckbox.checked = true
+                    }
                 }
-            })
-    </script>
+            })()
+        </script>
+        <!-- <button class="backToTopButton">Back to top</button> -->
+    </div>
+</footer>
 
+<script>
+    // const handleBackToTop = () => {
+    //   window.scrollTo(0, 0);
+    // };
 
-</html>
+    // const button = document.querySelector(".backToTopButton");
+    // button?.addEventListener("click", handleBackToTop);
+
+    const darkLightCheckbox = document.getElementById(
+        'dark-light'
+    ) as HTMLInputElement
+
+    const handleCheckboxChange = (e: Event) => {
+        const target = e?.currentTarget as HTMLInputElement
+        const htmlEl = document.documentElement
+        if (target.checked === true) {
+            localStorage.setItem('colour-mode', 'dark')
+            htmlEl.classList.add('dark')
+            htmlEl.classList.remove('light')
+        } else if (target.checked === false) {
+            localStorage.setItem('colour-mode', 'light')
+            htmlEl.classList.add('light')
+            htmlEl.classList.remove('dark')
+        }
+    }
+
+    darkLightCheckbox?.addEventListener('change', (e) =>
+        handleCheckboxChange(e)
+    )
+
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+            if (!localStorage.getItem('colour-mode') && darkLightCheckbox) {
+                darkLightCheckbox.checked = e.matches
+            }
+        })
+</script>

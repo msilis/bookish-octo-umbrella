@@ -7,16 +7,38 @@
     --bg-color: white;
     --button-hover: black;
     --text-color: black;
+    --nav-bg: hsla(100, 100%, 99%, 0.603);
+    --nav-border: rgb(182, 182, 182);
+    --icon-filter: none;
 }
 
 html {
     font-family: 'Courier New', Courier, monospace;
 }
 
+@media (prefers-color-scheme: dark) {
+    html:not(.light) {
+        --bg-color: #1a1a1a;
+        --text-color: #f0f0f0;
+        --nav-bg: rgba(26, 26, 26, 0.75);
+        --nav-border: #444444;
+        --icon-filter: invert(100%);
+    }
+}
+
 html.light {
+    --bg-color: white;
     --text-color: black;
+    --nav-bg: hsla(100, 100%, 99%, 0.603);
+    --nav-border: rgb(182, 182, 182);
+    --icon-filter: none;
 }
 
 html.dark {
-    --text-color: white;
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --nav-bg: rgba(26, 26, 26, 0.75);
+    --nav-border: #444444;
+    --icon-filter: invert(100%);
 }
+

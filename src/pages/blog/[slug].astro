@@ -37,8 +37,8 @@ const publishedDate = postPage.data.date
 </Layout>
 
 <style>
-    :global(html.dark) #backIcon {
-        filter: invert(100%);
+    #backIcon {
+        filter: var(--icon-filter);
     }
 
     .contentWrapper :global(a) {
