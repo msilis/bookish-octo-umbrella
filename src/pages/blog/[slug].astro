@@ -19,7 +19,6 @@ export const getStaticPaths = (async () => {
 const pathname = new URL(Astro.request.url).pathname
 const postPathName = pathname.split('/')[2]
 const postPage = await getEntry('blog', postPathName)
-console.log(postPage, 'postPage')
 if (!postPage) throw new Error('Post not found')
 const { Content } = await render(postPage)
 const title = postPage.data.title
@@ -32,11 +31,17 @@ const publishedDate = postPage.data.date
     >
     <h2>{title}</h2>
     <h3>{publishedDate.toLocaleDateString()}</h3>
-    <Content />
+    <div class="contentWrapper">
+        <Content />
+    </div>
 </Layout>
 
 <style>
     :global(html.dark) #backIcon {
         filter: invert(100%);
+    }
+
+    .contentWrapper :global(a) {
+        text-decoration: underline;
     }
 </style>
