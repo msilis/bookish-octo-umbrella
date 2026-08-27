@@ -14,6 +14,7 @@
         "format": "prettier . --write"
     },
     "dependencies": {
+        "@astrojs/rss": "^4.0.19",
         "astro": "^7.1.1",
         "decap-cms-app": "^3.15.0",
         "prettier": "^3.9.5",
