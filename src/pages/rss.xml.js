@@ -7,6 +7,7 @@ export async function GET(context) {
         title: 'Miks Silis Blog',
         description: 'Frontend engineering thoughts and observations',
         site: context.site,
+        stylesheet: '/rss/pretty-feed-v3.xsl',
         items: items.map((post) => ({
             title: post.data.title,
             pubDate: post.data.date,
