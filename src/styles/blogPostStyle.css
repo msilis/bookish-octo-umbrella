@@ -12,4 +12,8 @@ main {
     a:hover {
         text-decoration: underline;
     }
+
+    ul {
+        flex-direction: column;
+    }
 }
