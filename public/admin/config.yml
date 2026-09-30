@@ -6,6 +6,7 @@ local_backend: true
 
 media_folder: 'src/assets/images'
 public_folder: '../../assets/images'
+publish_mode: editorial_workflow
 
 collections:
     - name: 'blog'
