@@ -3,7 +3,7 @@ layout: blog
 title: How it started, how it ended.
 date: 2026-10-06T20:28:00.000+01:00
 ---
-![The curve of a road going under a railroad bridge showing a segregated cycle path.](../../assets/images/20261006_085037.jpg "The little strip of concrete that did me in")
+![The curve of a road going under a railroad bridge showing a segregated cycle path.](../../assets/images/20261006_085037.webp "The little strip of concrete that did me in")
 
 I started my day by *trying* to go to work. I got on my bike, had everything packed, helmet on, work bag attached to my bike. I made it to about 5 minutes from work and then did the dumbest thing. I have toe cages/clips on my pedals and usually I can just feel when the shoe is in the right spot. Today, I decided to look down to check. I decided to look down to check right as there was a bend coming up. I looked up just in time to see the barrier that separates the bike lane from the road get exponentially closer. It was one of those slow-motion moments. I had my hands on the brakes but the momentum of my heavily-packed bike had other ideas. The road wanted to curve, by bike wanted to go straight. 
 
