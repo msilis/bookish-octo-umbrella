@@ -23,3 +23,9 @@ p > img {
     max-width: 600px;
     height: auto;
 }
+
+.contentWrapper {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
