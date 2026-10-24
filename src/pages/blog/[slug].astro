@@ -33,6 +33,10 @@ const publishedDate = postPage.data.date
     <h3>{publishedDate.toLocaleDateString()}</h3>
     <div class="contentWrapper">
         <Content />
+        <hr />
+        <a href=`mailto:comment@mikssilis.com?subject=RE:${title}`
+            >Send me a comment via email</a
+        >
     </div>
 </Layout>
 
