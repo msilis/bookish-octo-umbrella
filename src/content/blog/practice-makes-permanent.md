@@ -15,7 +15,7 @@ There are two scenarios that I think could play out. Scenario 1: LLMs get more a
 
 Sure it's not as black and white as this, but hey, I don't feel like typing all that out.
 
-Even if scenario 1 is possible, there is time before it probably happens on a meaningful scale, we need people to be able to build stuff. Where do you get the practice of putting these systems together if you're chucking everything at an LLM? Where do you get the <a href="https://gr-y.uk/ais-frictionless-road-to-hell/" target="_blank" noopener noreferrer>friction</a> of learning and growing? There's a reason you can't just watch a bunch of YouTube videos on, say, electrical repair and then expect to just be able to do stuff Matrix-style.
+Even if scenario 1 is possible, there is time before it probably happens on a meaningful scale, we need people to be able to build stuff. Where do you get the practice of putting these systems together if you're chucking everything at an LLM? Where do you get the <a href="https://gr-y.uk/ais-frictionless-road-to-hell/" target="_blank" rel="noopener noreferrer">friction</a> of learning and growing? There's a reason you can't just watch a bunch of YouTube videos on, say, electrical repair and then expect to just be able to do stuff Matrix-style.
 
 My approach, which I'd say works pretty well before 3PM, is to sit in whatever competence discomfort I have and read, experiment, re-evaluate, before calling in the robots. Or sometimes I don't call them in, or maybe I just plan. But my goal is to get better at the thing that I'm doing. In some ways that might be knowing better what to ask of an LLM, in other ways it means having a mental model that I can call on to diagnose bugs quickly. 
 
