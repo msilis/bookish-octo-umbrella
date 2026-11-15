@@ -14,3 +14,7 @@ I think the last two talks are what are sticking with me. The talk <a href="http
 The last talk by <a href="https://www.lenareinhard.com/" target="_blank" rel="noopener noreferrer">Lena Reinhard</a> gave me a bit of optimism to take with me. Again, there was a lot to take in, and this is another one of those talks I'll need to re-watch, but in quick summary it pushed back on the "this is all inevitable" narrative. That we've spent years taking friction out of our lives and whether that's actually a good thing.
 
 Well, the kids are about to wake up so I'll wrap this up for now.
+
+
+
+P.S. to check out the full list of speakers, you can go <a href="https://2026.ffconf.org/" rel="noopener noreferrer" target="_blank">here</a>.
